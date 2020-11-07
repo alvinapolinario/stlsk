@@ -4,16 +4,18 @@
 
 $issues = array();
 
-if (!(PHP_VERSION_ID >= 70200)) {
-    $issues[] = 'Your Composer dependencies require a PHP version ">= 7.2.0". You are running ' . PHP_VERSION  .  '.';
+if (!(PHP_VERSION_ID >= 70205)) {
+    $issues[] = 'Your Composer dependencies require a PHP version ">= 7.2.5". You are running ' . PHP_VERSION  .  '.';
 }
 
 $missingExtensions = array();
 extension_loaded('dom') || $missingExtensions[] = 'dom';
+extension_loaded('fileinfo') || $missingExtensions[] = 'fileinfo';
 extension_loaded('filter') || $missingExtensions[] = 'filter';
 extension_loaded('json') || $missingExtensions[] = 'json';
 extension_loaded('libxml') || $missingExtensions[] = 'libxml';
 extension_loaded('mbstring') || $missingExtensions[] = 'mbstring';
+extension_loaded('openssl') || $missingExtensions[] = 'openssl';
 extension_loaded('phar') || $missingExtensions[] = 'phar';
 extension_loaded('tokenizer') || $missingExtensions[] = 'tokenizer';
 extension_loaded('xml') || $missingExtensions[] = 'xml';
